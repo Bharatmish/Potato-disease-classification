@@ -2,22 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "main.py",
-      "use": "@vercel/python"
+      "src": "api/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.9"
+      }
     },
     {
-      "src": "main-tf-serving.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/main",
-      "dest": "main.py"
-    },
-    {
-      "src": "/api/tf-serving",
-      "dest": "main-tf-serving.py"
+      "src": "api/main-tf-serving.py",
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.9"
+      }
     }
   ]
 }
