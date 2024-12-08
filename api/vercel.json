@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+      "src": "main.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "main-tf-serving.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/$1"
+      "src": "/api/main",
+      "dest": "main.py"
+    },
+    {
+      "src": "/api/tf-serving",
+      "dest": "main-tf-serving.py"
     }
   ]
 }
